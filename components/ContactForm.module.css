@@ -1,0 +1,143 @@
+.form {
+  position: relative;
+}
+.form fieldset {
+  display: grid;
+  gap: 24px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+.field label {
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--field-border);
+  border-radius: 0;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.field input {
+  min-height: 50px;
+  padding: 12px 14px;
+}
+.field textarea {
+  min-height: 180px;
+  padding: 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+.fieldMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--secondary);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.fieldMeta span:last-child {
+  flex: none;
+  font-family: var(--mono);
+}
+.error {
+  color: var(--danger);
+  font-size: 0.76rem;
+}
+.submitRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 8px;
+}
+.submitRow p {
+  max-width: 330px;
+  color: var(--secondary);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+.statusRegion {
+  min-height: 58px;
+  padding-top: 20px;
+}
+.status {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--field-border);
+  background: var(--surface);
+  color: var(--secondary);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+.status svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+.success {
+  border-color: var(--success);
+  color: var(--success);
+}
+.failure {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+.honeypot {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 620px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .submitRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .fieldMeta {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .fieldMeta span:last-child {
+    align-self: flex-end;
+  }
+}

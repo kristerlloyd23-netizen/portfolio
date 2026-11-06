@@ -1,0 +1,31 @@
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--field-border);
+  background: transparent;
+  color: var(--secondary);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.toggle svg {
+  width: 18px;
+  height: 18px;
+}
+.sun,
+.moon {
+  display: grid;
+}
+:global(html[data-theme="dark"]) .moon {
+  display: none;
+}
+:global(html[data-theme="light"]) .sun {
+  display: none;
+}

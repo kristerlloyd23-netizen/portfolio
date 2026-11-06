@@ -1,0 +1,335 @@
+@layer reset, base, components;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  ul,
+  ol,
+  dl,
+  dd {
+    margin: 0;
+  }
+  ul,
+  ol {
+    padding: 0;
+  }
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+:root {
+  --bg: #111311;
+  --surface: #191c19;
+  --surface-raised: #202420;
+  --text: #f1efe7;
+  --secondary: #b6bab3;
+  --sage: #a8b5a0;
+  --accent: #c7a46a;
+  --accent-contrast: #111311;
+  --border: #343a34;
+  --field-border: #697264;
+  --danger: #f0a69c;
+  --success: #b6d3a8;
+  --display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --body: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --mono: var(--font-ibm-plex-mono), "SFMono-Regular", Consolas, monospace;
+  --content: 1280px;
+  --radius: 4px;
+  --ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --bg: #f1efe7;
+  --surface: #faf9f4;
+  --surface-raised: #ffffff;
+  --text: #191c19;
+  --secondary: #4f564f;
+  --sage: #425540;
+  --accent: #765619;
+  --accent-contrast: #f1efe7;
+  --border: #d3d0c7;
+  --field-border: #7b8278;
+  --danger: #8f2f25;
+  --success: #285e2b;
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+    background: var(--bg);
+  }
+
+  body {
+    min-width: 280px;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    min-height: 70vh;
+  }
+  main > * > *,
+  article > *,
+  section > * {
+    min-width: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    color: inherit;
+  }
+  button:not(:disabled),
+  a {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+  p,
+  li {
+    max-width: 75ch;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  h1,
+  h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+  }
+  h3 {
+    line-height: 1.2;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.65s var(--ease),
+      transform 0.65s var(--ease);
+  }
+  [data-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  [data-reveal="visible"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .container {
+    width: min(calc(100% - 48px), var(--content));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: clamp(72px, 9vw, 128px);
+  }
+  .sectionCompact {
+    padding-block: clamp(48px, 6vw, 80px);
+  }
+  .sectionBorder {
+    border-top: 1px solid var(--border);
+  }
+
+  .button {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    text-decoration: none;
+    transition:
+      background-color 0.2s var(--ease),
+      color 0.2s var(--ease),
+      border-color 0.2s var(--ease),
+      transform 0.2s var(--ease);
+  }
+  .button:hover {
+    transform: translateY(-2px);
+  }
+  .buttonPrimary {
+    background: var(--accent);
+    color: var(--accent-contrast);
+  }
+  .buttonPrimary:hover {
+    background: var(--text);
+    color: var(--bg);
+  }
+  .buttonSecondary {
+    border-color: var(--field-border);
+    background: transparent;
+    color: var(--text);
+  }
+  .buttonSecondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .buttonQuiet {
+    border-color: var(--border);
+    color: var(--secondary);
+  }
+  .buttonQuiet:hover {
+    color: var(--text);
+    border-color: var(--secondary);
+  }
+
+  .srOnly {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+
+  .skipLink {
+    position: fixed;
+    z-index: 1000;
+    top: 12px;
+    left: 12px;
+    padding: 12px 18px;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    transform: translateY(-160%);
+    transition: transform 0.15s ease;
+  }
+  .skipLink:focus {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(calc(100% - 32px), var(--content));
+  }
+  .section {
+    padding-block: 64px;
+  }
+  .button {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal],
+  [data-reveal="pending"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  :root,
+  html[data-theme="light"] {
+    --bg: #fff;
+    --surface: #fff;
+    --text: #111;
+    --secondary: #333;
+    --border: #bbb;
+    color-scheme: light;
+  }
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 10pt;
+  }
+  body > header,
+  body > footer,
+  .skipLink,
+  .noPrint {
+    display: none !important;
+  }
+  main {
+    min-height: 0;
+  }
+  .container {
+    width: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .section,
+  .sectionCompact {
+    padding-block: 16px;
+  }
+}

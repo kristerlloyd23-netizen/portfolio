@@ -1,0 +1,245 @@
+.pageHero {
+  padding-block: clamp(72px, 10vw, 144px) clamp(48px, 6vw, 88px);
+  border-bottom: 1px solid var(--border);
+}
+.pageHero > p:last-child {
+  margin-top: 28px;
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(0, 1.35fr);
+  gap: clamp(40px, 8vw, 120px);
+}
+.split h2 {
+  font-size: clamp(2.4rem, 4.8vw, 4.5rem);
+}
+.prose {
+  display: grid;
+  gap: 22px;
+  max-width: 780px;
+  color: var(--secondary);
+  font-size: 1rem;
+}
+.prose strong {
+  color: var(--text);
+}
+.prose h2,
+.prose h3 {
+  color: var(--text);
+}
+.prose ul {
+  display: grid;
+  gap: 12px;
+  padding-left: 20px;
+}
+.kicker {
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.infoCard {
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.infoCard h2,
+.infoCard h3 {
+  font-size: 1.2rem;
+}
+.infoCard > p {
+  margin-top: 16px;
+  color: var(--secondary);
+}
+.infoCard ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+  list-style: none;
+}
+.infoCard li {
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+  color: var(--secondary);
+  font-size: 0.86rem;
+}
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  list-style: none;
+}
+.tagList li {
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  color: var(--secondary);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+.timeline {
+  border-top: 1px solid var(--border);
+}
+.timelineItem {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding-block: 40px;
+  border-bottom: 1px solid var(--border);
+}
+.timelineDate {
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+.timelineContent h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.timelineContent .organization {
+  margin-top: 12px;
+  color: var(--sage);
+  font-size: 0.84rem;
+}
+.timelineContent .summary {
+  margin-top: 20px;
+  color: var(--secondary);
+}
+.timelineContent ul {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+  padding-left: 18px;
+  color: var(--secondary);
+  font-size: 0.88rem;
+}
+.notice {
+  padding: 20px 22px;
+  border-left: 2px solid var(--accent);
+  background: var(--surface);
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+.credentialList {
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+.credential {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 22px;
+  background: var(--surface);
+}
+.credential h3 {
+  font-size: 1rem;
+}
+.credential p {
+  margin-top: 6px;
+  color: var(--secondary);
+  font-size: 0.8rem;
+}
+.credential > span {
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-align: right;
+}
+.skillSection {
+  margin-top: 56px;
+}
+.skillSection > h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.skillCard {
+  padding: 28px;
+  border-top: 2px solid var(--field-border);
+  background: var(--surface);
+}
+.skillCard h3 {
+  font-size: 1.1rem;
+}
+.skillCard > p {
+  margin-top: 10px;
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  line-height: 1.5;
+}
+.skillCard ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+  list-style: none;
+}
+.skillCard li {
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+.skillCard li::before {
+  content: "↳";
+  margin-right: 10px;
+  color: var(--accent);
+}
+.buildGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+.buildGrid > div {
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+.buildGrid h3 {
+  font-size: 1rem;
+}
+.buildGrid p {
+  margin-top: 12px;
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 820px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .cardGrid,
+  .skillGrid,
+  .buildGrid {
+    grid-template-columns: 1fr;
+  }
+  .timelineItem {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .credential {
+    grid-template-columns: 1fr;
+  }
+  .credential > span {
+    text-align: left;
+  }
+}

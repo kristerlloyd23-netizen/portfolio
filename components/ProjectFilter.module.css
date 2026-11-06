@@ -1,0 +1,87 @@
+.gallery {
+  margin-top: 48px;
+}
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filters button,
+.empty button {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--secondary);
+  font-family: var(--mono);
+  font-size: 0.67rem;
+}
+.filters button:hover,
+.filters button.active {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.count {
+  flex: none;
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+}
+.grid {
+  display: grid;
+  gap: 32px;
+}
+.empty {
+  padding: clamp(32px, 6vw, 72px);
+  border: 1px dashed var(--field-border);
+  text-align: center;
+}
+.emptyCode {
+  margin-bottom: 20px;
+  color: var(--sage);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+}
+.empty h3 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 500;
+}
+.empty p:not(.emptyCode) {
+  margin: 20px auto 28px;
+  color: var(--secondary);
+}
+.empty button {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .count {
+    align-self: flex-end;
+  }
+}
+@media (max-width: 420px) {
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .filters button {
+    padding-inline: 8px;
+  }
+}

@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 12px;
+  border: 1px solid var(--field-border);
+  background: transparent;
+  color: var(--secondary);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+.button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.button svg {
+  width: 16px;
+  height: 16px;
+}
+.status {
+  color: var(--sage);
+  font-size: 0.75rem;
+}
